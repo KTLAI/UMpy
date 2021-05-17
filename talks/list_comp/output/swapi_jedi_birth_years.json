@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Luke Skywalker",
+    "birth_year": "19BBY"
+  },
+  {
+    "name": "Obi-Wan Kenobi",
+    "birth_year": "57BBY"
+  },
+  {
+    "name": "Anakin Skywalker",
+    "birth_year": "41.9BBY"
+  },
+  {
+    "name": "Yoda",
+    "birth_year": "896BBY"
+  },
+  {
+    "name": "Qui-Gon Jinn",
+    "birth_year": "92BBY"
+  },
+  {
+    "name": "Mace Windu",
+    "birth_year": "72BBY"
+  },
+  {
+    "name": "Ki-Adi-Mundi",
+    "birth_year": "92BBY"
+  },
+  {
+    "name": "Kit Fisto",
+    "birth_year": null
+  },
+  {
+    "name": "Eeth Koth",
+    "birth_year": null
+  },
+  {
+    "name": "Adi Gallia",
+    "birth_year": null
+  },
+  {
+    "name": "Saesee Tiin",
+    "birth_year": null
+  },
+  {
+    "name": "Yarael Poof",
+    "birth_year": null
+  },
+  {
+    "name": "Plo Koon",
+    "birth_year": null
+  },
+  {
+    "name": "Rey",
+    "birth_year": "15ABY"
+  }
+]
