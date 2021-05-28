@@ -36,39 +36,14 @@ def main():
         ('Togo', 'TGO')
     ]
 
-    country_codes = {element[0]: element[1] for element in data}
+    country_codes = None # TODO implement
 
-    print(f"\nChallenge 01: list to dict = {country_codes}")
+    # print(f"\nChallenge 01: list to dict = {country_codes}")
 
 
     # CHALLENGE 02: DICT TO NEW DICT COMPUTE NEW VALUE
 
     # https://www.statista.com/statistics/244983/projected-inflation-rate-in-the-united-states/
-
-    # Year, Percent rate
-    # data = {
-    #     '2020': 1.25,
-    #     '2019': 1.81,
-    #     '2018': 2.44,
-    #     '2017': 2.13,
-    #     '2016': 1.26,
-    #     '2015': 0.12,
-    #     '2014': 1.62,
-    #     '2013': 1.46,
-    #     '2012': 2.07,
-    #     '2011': 3.16,
-    #     '2010': 1.64,
-    #     '2009': -0.36,
-    #     '2008': 3.84,
-    #     '2007': 2.85,
-    #     '2006': 3.23,
-    #     '2005': 3.39,
-    #     '2004': 2.68,
-    #     '2003': 2.27,
-    #     '2002': 1.59,
-    #     '2001': 2.83,
-    #     '2000': 3.38
-    # }
 
     data = {
         '2020': 0.0125,
@@ -94,21 +69,21 @@ def main():
         '2000': 0.0338
     }
 
-    inflation_rates = {key: round(val * 100, 2) for key, val in data.items()}
-
-    print(f"\nChallenge 02: US inflation rates = {inflation_rates}")
+    inflation_rates = None # TODO Implement
+    
+    # print(f"\nChallenge 02: US inflation rates = {inflation_rates}")
 
 
     # CHALLENGE 03: DICT TO DICT (SUBSET WITH IF)
 
-    inflation_rates = {year: rate for year, rate in inflation_rates.items() if int(year) > 2009}
+    inflation_rates = None # TODO Implement
 
-    print(f"\nChallenge 03: US inflation rates 2010-2020 = {inflation_rates}")
+    # print(f"\nChallenge 03: US inflation rates 2010-2020 = {inflation_rates}")
 
 
     # CHALLENGE 04: NUMBERED DIRECTIONS WITH ENUMERATE()
 
-    # Recall that list is ordered
+    # Recall that a list is ordered
     data = [
         ['Head north on S State St toward E Washington St.', 0.1],
         ['Turn left at the 2nd cross street onto E Huron St.', 1.3],
@@ -123,9 +98,9 @@ def main():
         ['Turn right at 1st cross street onto N Mechanic St. Destination on left', 0.0359],
     ]
 
-    directions = {str(i): {'segment': data[0], 'distance_mi': data[1]} for i, data in enumerate(data, 1)}
+    directions = None # TODO Implement
 
-    print(f"\nChallenge 04: numbered directions = {directions}")
+    # print(f"\nChallenge 04: numbered directions = {directions}")
 
 
     # CHALLENGE 05: NEW DICT INNER PLANETS ONLY
@@ -141,31 +116,23 @@ def main():
         "neptune" : {'category': 'outer', 'satellites': 14}
     }
 
-    inner_planets = {key: val for key, val in data.items() if val['category'] == 'inner'}
+    inner_planets = None # TODO Implement
 
-    print(f"\nChallenge 05: inner planets = {inner_planets}")
+    # print(f"\nChallenge 05: inner planets = {inner_planets}")
 
 
     # CHALLENGE 06: NEW DICT OUTER PLANETS WITH 10-30 SATELLITES (INCLUSIVE)
 
-    outer_planets = {
-        key: val
-        for key, val in data.items()
-        if val['category'] == 'outer'
-        and 10 <= val['satellites'] <= 30
-    }
+    outer_planets = None # TODO Implement
 
-    print(f"\nChallenge 06: Outer planets 10-30 satellites = {outer_planets}")
+    # print(f"\nChallenge 06: Outer planets 10-30 satellites = {outer_planets}")
 
 
     # CHALLENGE 07: NEW DICT IF-ELSE
 
-    planet_types = {
-        key: ('terrestrial' if val['category'] == 'inner' else 'jovian')
-        for key, val in data.items()
-    }
+    planet_types = None # TODO Implement
 
-    print(f"\n Challenge 07: planet types if-else = {planet_types}")
+    # print(f"\n Challenge 07: planet types if-else = {planet_types}")
 
 
     # CHALLENGE 08: WORD FREQUENCIES
@@ -187,35 +154,19 @@ def main():
     """
 
     # Remove punctuation (import string module)
-    data_cleaned = data.translate(str.maketrans('','', string.punctuation)) # remove punctuation
-    data_cleaned = data_cleaned.lower() # Treat 'We' and 'we' as equal
+    # data_cleaned = data.translate(str.maketrans('','', string.punctuation)) # remove punctuation
+    data_cleaned = None # TODO Implement # case-insensitive
 
-    # word_counts = {}
-    # for word in data_cleaned.split():
-    #     if word not in word_counts.keys():
-    #         word_counts[word] = 1
-    #     else:
-    #         word_counts[word] += 1
+    word_counts = None # Implement for loop
 
-    word_counts = {}
-    for word in data_cleaned.split():
-        word_counts[word] = word_counts.get(word, 0) + 1 # default to zero if key does not exist
-
-    # word_counts = {}
-    # for word in data_cleaned.lower().split():
-    #     word_counts[word] = word_counts.get(word, 0) + 1 # default to zero if key does not exist
-
-    print(f"\nChallenge 08: word count loop (we) = {word_counts['we']}")
+    # print(f"\nChallenge 08: word count loop (we) = {word_counts['we']}")
 
     # print(f"\nChallenge 08: word count loop = {word_counts}")
 
     # Unlike a list a set is unordered and cannot include multiple occurences of the same value
-    word_counts = {word: data_cleaned.split().count(word) for word in set(data_cleaned.split())}
+    word_counts = None # Implement comprehension
 
-    # Handle case insensitive in comprehension
-    # word_counts = {word: data_cleaned.lower().split().count(word) for word in set(data_cleaned.lower().split())}
-
-    print(f"\nChallenge 08: word count comp (we) = {word_counts['we']}")
+    # print(f"\nChallenge 08: word count comp (we) = {word_counts['we']}")
 
     # print(f"\nChallenge 08: word count comp = {word_counts}")
 

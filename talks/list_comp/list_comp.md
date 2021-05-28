@@ -2,7 +2,7 @@
 
 ## Goals
 
-1. Awareness/Literacy: Write list and dictionary comprehensions in place of `for` loops.
+1. Awareness/Literacy: Write list comprehensions in place of `for` loops.
 2. Review: Work with lists and dictionaries.
 3. Review: Write conditional statements that filter list elements.
 4. Awareness: Use the `timeit` module to measure the execution time of `for` loops vs list
