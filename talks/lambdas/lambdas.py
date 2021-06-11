@@ -27,7 +27,7 @@ def main():
 
     print(f"\nWARM UP: southern_africa, ISO Alpha3 code sort = {southern_africa}")
 
-    southern_africa = sorted(countries, key=lambda x: x[1], reverse=True)
+    southern_africa = sorted(countries, key=lambda x: x[0], reverse=True)
 
     print(f"\nWARM UP: southern_africa, ISO Alpha3 code sort (reversed) = {southern_africa}")
 
@@ -45,7 +45,7 @@ def main():
         ('Guatemala', 'GTM', 6.436)
     ]
 
-    central_america.sort(key=lambda x: x[-1], reverse=True)
+    central_america.sort(key=lambda y: y[-1],reverse=True) # TODO Implement
     print(f"\nWARM UP: Central America, happiness score (reversed) = {central_america}")
 
 
@@ -56,10 +56,10 @@ def main():
     data = umpy.read_csv(input_path)
 
     # Extract headers and countries
-    headers = data[0]
+    headers = data[0] # TODO Implement
     print(f"\nCHALLENGE 01: Happiness headers = {headers}")
 
-    countries = data[1:]
+    countries = data[1:] # TODO Implemen
     print(f"\nCHALLENGE 01: Countries random (limit=10) = {countries[:10]}")
 
     # CHALLENGE 02: SORT()
@@ -82,15 +82,15 @@ def main():
 
     # Numeric sort
     countries = data[1:] # reset
-    countries.sort(key=lambda x: float(x[2]), reverse=True)
+    countries.sort(key=lambda x: float(x[2]), reverse=True) # sort on happiness score
     printable = [(country[0], country[2]) for country in countries[:10]]
     print(f"\nCHALLENGE 04: countries score desc float = {printable}")
 
     # Lexicographic sort (no float conversion)
-    countries = data[1:] # reset
-    countries.sort(key=lambda x: x[2], reverse=True)
-    printable = [(country[0], country[2]) for country in countries[:10]]
-    print(f"\nCHALLENGE 04: countries score desc lexicographic = {printable}")
+    # countries = data[1:] # reset
+    # countries.sort(?)
+    # printable = None # TODO Implement
+    # print(f"\nCHALLENGE 04: countries score desc lexicographic = {printable}")
 
     # Alternative (operator.itemgetter())
     countries = data[1:] # reset
@@ -102,23 +102,23 @@ def main():
     # CHALLENGE 05 SORTED() SOCIAL SUPPORT
 
     # SORTED (NEW LIST) SOCIAL SUPPORT
-    countries = data[1:] # reset
-    countries = sorted(countries, key=lambda x: float(x[4]), reverse=True)
-    printable = [(country[0], country[4]) for country in countries[:10]]
-    print(f"\nCHALLENGE 05: Countries rank desc = {printable}")
+    # countries = data[1:] # reset
+    # countries = sorted(?)
+    # printable = None # TODO Implement
+    # print(f"\nCHALLENGE 05: Countries rank desc = {printable}")
 
     # Alternative
-    countries = data[1:] # reset
-    countries = sorted(countries, key=operator.itemgetter(4), reverse=True)
-    printable = [(country[0], country[4]) for country in countries[:10]]
-    print(f"\nCHALLENGE 05: countries rank desc itemgetter = {printable}")
+    # countries = data[1:] # reset
+    # countries = sorted(?)
+    # printable = None # TODO Implement
+    # print(f"\nCHALLENGE 05: countries rank desc itemgetter = {printable}")
 
 
     # CHALLENGE 06: SORT MULTIPLE COLUMNS
 
     # SORTED (NEW LIST) REGION, SCORE, COUNTRY ASCENDING ALL KEYS
     countries = data[1:] # reset
-    countries = sorted(countries, key=lambda x: (x[1], float(x[2]), x[0])) # tuple of values
+    countries = sorted(countries, key=lambda x: (x[1], float(x[2]), x[0]), reverse=True) # tuple of values
     writable = [(country[1], country[0], country[2]) for country in countries if 'Europe' in country[1]]
     output_path = './output/europe-happiness.csv'
     umpy.write_csv(output_path, writable, ('Country', 'Region', 'Score'))
@@ -128,7 +128,7 @@ def main():
 
     # SORTED (NEW LIST) REGION, SCORE, COUNTRY MIXED ORDERING
     countries = data[1:] # reset
-    countries = sorted(countries, key=lambda x: (x[1], -float(x[2]), x[0])) # negative value (sorting hack)
+    countries = sorted(countries, key=lambda x: (x[1], float(x[2]), x[0]), reverse=True) # tuple of values
     writable = [
         (country[1], country[0], country[2])
         for country in countries
@@ -139,7 +139,8 @@ def main():
 
     # Alternative: local function
     countries = data[1:] # reset
-    countries = sorted(countries, key=sort_region_by_score_desc) # reference function name
+    # countries = sorted(countries, key=sort_region_by_score_desc) # reference function name
+    countries = sorted(countries, key=lambda x: -float(x[2])) # reference function name
     writable = [
         (country[1], country[0], country[2])
         for country in countries
@@ -157,13 +158,8 @@ def main():
 
     rankings = []
     for i, country in enumerate(countries, 1):
-        # country.insert(0, i)
-        # rankings.append(country)
-
-        # [i].extend(country)
-        # rankings.append(i)
-
-        rankings.append([i] + country) # expression returns a new list
+        country.insert(0, i)
+        rankings.append(country)
 
     # headers.insert(0, 'Rank') # Don't mutate headers
     output_path = './output/world_rank-happiness-loop.csv'
@@ -173,12 +169,12 @@ def main():
     # Both methods return None and trigger a runtime error when the list is passed to write_csv().
     # _csv.Error: iterable expected, not NoneType
 
-    # writable = [country.insert(0, i) for i, country in enumerate(countries, 1)]
+    #writable = [country.insert(0, i) for i, country in enumerate(countries, 1)]
     # writable = [[i].extend(country) for i, country in enumerate(countries, 1)]
 
-    writable = [[i] + country for i, country in enumerate(countries, 1)]
+    # writable = None # TODO Implement
     output_path = './output/world_rank-happiness.csv'
-    umpy.write_csv(output_path, writable, ['Rank'] + headers)
+    # umpy.write_csv(output_path, writable, ['Rank'] + headers)
 
 
 if __name__ == "__main__":
