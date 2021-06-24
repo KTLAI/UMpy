@@ -249,8 +249,11 @@ Write the new list to a file employing the path `'./output/southern_africa-happi
 
 ## Recommended reading
 
+**Andre Burgaud, ["How to Use Python Lambda Functions"](https://realpython.com/python-lambda/) (Real Python, n.d.).**
+
 **Andrew Dalke and Raymond Hettinger, ["Sorting HOW TO"](https://docs.python.org/3/howto/sorting.html) (Python official documentation, n.d.).**
 
 **David Fundakowski, ["How to Use sorted() and sort() in Python"](https://realpython.com/python-sort/) (Real Python, n.d.).**
 
 **Priyankur Sarkar, ["How to Use Python Lambda Functions"](https://www.knowledgehut.com/blog/programming/python-lambda-functions) (knowlege hut, Aug 2019).**
+
